@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Modust Library</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="css/modust-style.css" rel="stylesheet" />
+  <link rel="icon" type="image" href="assets/img/HRIS.ico">
+  <!-- Basic -->
+  <!-- <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css"> -->
+
+  <!-- Bootstrap 5 -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css"> -->
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css"/>
+  
+
+</head>
+
+<body class="sb-nav-fixed">
+  <nav class="sb-topnav navbar navbar-expand navbar-light sb-sidenav-light shadow-sm p-3 mb-5 bg-body-tertiary">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-4" href="../../index.html">
+      <img src="assets/img/hris_logo_horizontal.svg" alt="Bootstrap" width="auto" height="auto">
+    </a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+          aria-describedby="btnNavbarSearch" />
+        <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#!">Settings</a></li>
+          <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li><a class="dropdown-item" href="login/login.html">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+    <!--Side Bar -->
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-light shadow-sm" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <!-- <div class="sb-sidenav-menu-heading">Semangat Pagi!</div> -->
+              <!-- Side Nav Home -->
+              <a class="nav-link" href="index.html">
+                  <div class="sb-nav-link-icon">
+                    <i class="fa-solid fa-house"></i>
+                  </div>
+                  Home
+              </a>
+              <div class="sb-sidenav-menu-heading">Menu</div>
+
+              <!-- Side Nav Menu Master Data -->
+              <div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMasterData"
+                    aria-expanded="false" aria-controls="collapseMasterData">
+                    <div class="sb-nav-link-icon">
+                      <i class="fa-solid fa-database"></i>
+                    </div>
+                    Master Data
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div class="collapse" id="collapseMasterData" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                  <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionMasterData">
+                    <a class="nav-link" href="menuSidebar/masterData/departemen.html">Departemen</a>
+                    <a class="nav-link" href="menuSidebar/masterData/golongan.html">Golongan</a>
+                    <!-- Sub Menu Jabatan -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseJabatan"
+                    aria-expanded="false" aria-controls="MasterDataCollapseJabatan">
+                    Jabatan
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                    </a>
+                    <div class="collapse" id="MasterDataCollapseJabatan" aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordionMasterData">
+                    <nav class="sb-sidenav-menu-nested nav">
+                      <a class="nav-link" href="menuSidebar/masterData/dataJabatan.html">Data Jabatan</a>
+                      <a class="nav-link" href="menuSidebar/masterData/perpindahanJabatan.html">Perpindahan Jabatan</a>
+                    </nav>
+                    </div>
+                    <!-- Sub Menu Monitoring MPP -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseMonitoringMPP"
+                      aria-expanded="false" aria-controls="MasterDataCollapseMonitoringMPP">
+                      Monitoring MPP
+                      <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </a>
+                    <div class="collapse" id="MasterDataCollapseMonitoringMPP" aria-labelledby="headingOne"
+                      data-bs-parent="#sidenavAccordionMasterData">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/masterData/mppRekapAll.html">Rekap All</a>
+                        <a class="nav-link" href="menuSidebar/masterData/mppVsActPusat.html">MPP vs ACT Pusat</a>
+                        <a class="nav-link" href="menuSidebar/masterData/mppVsActDepo.html">MPP vs ACT Depo</a>
+                      </nav>
+                    </div>
+                    <!-- Sub Menu Kantor Cabang -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseKantorCabang"
+                    aria-expanded="false" aria-controls="MasterDataCollapseKantorCabang">
+                    Kantor Cabang
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                    </a>
+                    <div class="collapse" id="MasterDataCollapseKantorCabang" aria-labelledby="headingOne"
+                      data-bs-parent="#sidenavAccordionMasterData">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/masterData/dataKantor.html">Data Kantor</a>
+                        <a class="nav-link" href="menuSidebar/masterData/dataSNKantor.html">Data SN Kantor</a>
+                      </nav>
+                    </div>
+                    <!-- Sub Menu Karyawan -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseKaryawan"
+                    aria-expanded="false" aria-controls="MasterDataCollapseKaryawan">
+                    Karyawan
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                    </a>
+                    <div class="collapse" id="MasterDataCollapseKaryawan" aria-labelledby="headingOne"
+                      data-bs-parent="#sidenavAccordionMasterData">
+                      <nav class="sb-sidenav-menu-nested nav">
+                          <!-- Sub Menu In House -->
+                          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseKantorInHouse"
+                            aria-expanded="false" aria-controls="MasterDataCollapseKantorInHouse">
+                            In House
+                            <div class="sb-sidenav-collapse-arrow">
+                              <i class="fas fa-angle-down"></i>
+                            </div>
+                          </a>
+                          <div class="collapse" id="MasterDataCollapseKantorInHouse" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordionKaryawan">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <!-- Sub Menu TVIP -->
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseTVIP"
+                                  aria-expanded="false" aria-controls="MasterDataCollapseTVIP">
+                                  TVIP
+                                  <div class="sb-sidenav-collapse-arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                  </div>
+                                </a>
+                                <div class="collapse" id="MasterDataCollapseTVIP" aria-labelledby="headingOne"
+                                  data-bs-parent="#sidenavAccordionInHouse">
+                                  <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="menuSidebar/masterData/tvipTetap.html">Tetap</a>
+                                    <a class="nav-link" href="menuSidebar/masterData/tvipKontrak.html">Kontrak</a>
+                                  </nav>
+                                </div>
+                                <!-- Sub Menu ASA -->
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseASA"
+                                  aria-expanded="false" aria-controls="MasterDataCollapseASA">
+                                  ASA
+                                  <div class="sb-sidenav-collapse-arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                  </div>
+                                </a>
+                                <div class="collapse" id="MasterDataCollapseASA" aria-labelledby="headingOne"
+                                  data-bs-parent="#sidenavAccordionInhouse">
+                                  <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="menuSidebar/masterData/asaTetap.html">Tetap</a>
+                                    <a class="nav-link" href="menuSidebar/masterData/asaKontrak.html">Kontrak</a>
+                                  </nav>
+                                </div>
+                                <a class="nav-link" href="menuSidebar/masterData/kontrakMRT.html">MRT</a>
+                                <a class="nav-link" href="menuSidebar/masterData/kontrakTBK.html">TBK</a>
+                            </nav>
+                          </div>
+                          <!-- Sub Menu Out Source -->
+                          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseOutSource"
+                            aria-expanded="false" aria-controls="MasterDataCollapseOutSource">
+                            Out Source
+                            <div class="sb-sidenav-collapse-arrow">
+                              <i class="fas fa-angle-down"></i>
+                            </div>
+                          </a>
+                          <div class="collapse" id="MasterDataCollapseOutSource" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordionKaryawan">
+                            <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="menuSidebar/masterData/allKaryawan.html">All Karyawan</a>
+                              <a class="nav-link" href="menuSidebar/masterData/rekomendasiMitra.html">Rekomendasi Mitra</a>
+                              <!-- Sub Menu TKBM -->
+                              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseTKBM"
+                                aria-expanded="false" aria-controls="MasterDataCollapseTKBM">
+                                TKBM
+                                <div class="sb-sidenav-collapse-arrow">
+                                  <i class="fas fa-angle-down"></i>
+                                </div>
+                              </a>
+                              <div class="collapse" id="MasterDataCollapseTKBM" aria-labelledby="headingOne"
+                                data-bs-parent="#sidenavAccordionOutSource">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                  <a class="nav-link" href="menuSidebar/masterData/dataMasterTKBM.html">Data Master</a>
+                                  <a class="nav-link" href="menuSidebar/masterData/projectRealisasi.html">Project Realisasi</a>
+                                </nav>
+                              </div>
+                              <a class="nav-link" href="menuSidebar/masterData/uploadDokumen.html">Upload Dokumen</a>
+                              <a class="nav-link" href="menuSidebar/masterData/renewMOU.html">Renew MOU</a>
+                              <a class="nav-link" href="menuSidebar/masterData/mutasiOutSource.html">Mutasi Out Source</a>
+                            </nav>
+                          </div>
+                          <a class="nav-link" href="menuSidebar/masterData/manageService.html">Manage Service</a>
+                          <a class="nav-link" href="menuSidebar/masterData/project.html">Project</a>
+                          <a class="nav-link" href="menuSidebar/masterData/allKaryawan.html">All Karyawan</a>
+                          <a class="nav-link" href="menuSidebar/masterData/perpindahanKaryawan.html">Perpindahan Karyawan</a>
+                          <!-- Sub Menu Renew -->
+                          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseRenewKaryawan"
+                                      aria-expanded="false" aria-controls="MasterDataCollapseRenewKaryawan">
+                                      Renew Karyawan
+                                      <div class="sb-sidenav-collapse-arrow">
+                                        <i class="fas fa-angle-down"></i>
+                                      </div>
+                          </a>
+                          <div class="collapse" id="MasterDataCollapseRenewKaryawan" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordionKaryawan">
+                            <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="menuSidebar/masterData/renewDataKaryawan.html">Data Karyawan</a>
+                              <a class="nav-link" href="menuSidebar/masterData/renewHistory.html">History Renew</a>
+                            </nav>
+                          </div>
+                          <a class="nav-link" href="menuSidebar/masterData/dataRekening.html">Data Rekening</a>
+                          <a class="nav-link" href="menuSidebar/masterData/bpjsTK&Kes.html">BPJS TK & Kesehatan</a>
+                      </nav>
+                    </div>
+                    <a class="nav-link" href="menuSidebar/masterData/perusahaan.html">Perusahaan</a>
+                    <a class="nav-link" href="menuSidebar/masterData/shifting.html">Shifting</a>
+                    <a class="nav-link" href="menuSidebar/masterData/seragam.html">Seragam</a>
+                    <!-- Sub Menu Gallup -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseGallup"
+                      aria-expanded="false" aria-controls="MasterDataCollapseGallup">
+                      Gallup
+                      <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </a>
+                    <div class="collapse" id="MasterDataCollapseGallup" aria-labelledby="headingOne"
+                      data-bs-parent="#sidenavAccordionMasterData">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/masterData/pertanyaan.html">Pertanyaan</a>
+                        <!-- Sub Menu Report -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterDataCollapseReport"
+                          aria-expanded="false" aria-controls="MasterDataCollapseReport">
+                          Report
+                          <div class="sb-sidenav-collapse-arrow">
+                            <i class="fas fa-angle-down"></i>
+                          </div>
+                        </a>
+                        <div class="collapse" id="MasterDataCollapseReport" aria-labelledby="headingOne"
+                          data-bs-parent="#sidenavAccordionGallup">
+                            <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="menuSidebar/masterData/gallupEssay.html">Gallup Essay</a>
+                              <a class="nav-link" href="menuSidebar/masterData/gallup.html">Gallup Saran</a>
+                            </nav>
+                        </div>
+                      </nav>
+                    </div>
+                    <a class="nav-link" href="menuSidebar/masterData/user.html">User</a>
+                  </nav>
+                </div>
+              </div>
+              
+              <!-- Side Nav Menu Master History -->
+              <div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMasterHistorical"
+                aria-expanded="false" aria-controls="collapseMasterHistorical">
+                <div class="sb-nav-link-icon">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                  Master Historical
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+                </a>
+                <div class="collapse" id="collapseMasterHistorical" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav" id="sidenavAccordionMasterHistorical">
+                  <!-- Sub Menu In House -->
+                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterHistoricalCollapseInHouse"
+                      aria-expanded="false" aria-controls="MasterHistoricalCollapseInHouse">
+                      In House
+                      <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                  </a>
+                  <div class="collapse" id="MasterHistoricalCollapseInHouse" aria-labelledby="headingOne"
+                      data-bs-parent="#sidenavAccordionMasterHistorical">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalKontrak.html">Historical Kontrak</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalPegawaiTetap.html">Historical Pegawai Tetap</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalViolation.html">Historical Violation</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalViolationV2.html">Historical Violation V2</a>
+                        <!-- Sub Menu Historical Rotasi Mutasi -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#InHouseCollapseRotasiMutasi"
+                          aria-expanded="false" aria-controls="InHouseCollapseRotasiMutasi">
+                          Historical Rotasi Mutasi
+                          <div class="sb-sidenav-collapse-arrow">
+                            <i class="fas fa-angle-down"></i>
+                          </div>
+                        </a>
+                        <div class="collapse" id="InHouseCollapseRotasiMutasi" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordionInHouse">
+                              <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="menuSidebar/masterHistorical/pengajuanRotasiMutasi.html">Pengajuan</a>
+                                <a class="nav-link" href="menuSidebar/masterHistorical/monitoringRotasiMutasi.html">Monitoring</a>
+                              </nav>
+                        </div>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalCoachingCounseling.html">Historical Coaching Counseling</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalIPP.html">Individual Performance Plan</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalClearanceSheet.html">Clearance Sheet</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalReportPenggajian.html">Report Penggajian</a>
+                        <a class="nav-link" href="menuSidebar/masterHistorical/historicalExitInterview.html">Exit Interview</a>
+                      </nav>
+                  </div>
+                  <!-- Sub Menu Out Source -->
+                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterHistoricalCollapseOutSource"
+                      aria-expanded="false" aria-controls="MasterHistoricalCollapseOutSource">
+                      Out Source
+                      <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>        
+                  </a>
+                  <div class="collapse" id="MasterHistoricalCollapseOutSource" aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordionMasterHistorical">
+                        <nav class="sb-sidenav-menu-nested nav">
+                          <a class="nav-link" href="menuSidebar/masterHistorical/outSourceHistoricalKontrak.html">Historical Kontrak</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/outSourceHistoricalViolance.html">Historical Violance</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/outSourceHistoricalMutasiRotasi.html">Historical Mutasi Rotasi</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/outSourceHistoricalClearanceSheet.html">Clearance Sheet</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/outSourceHistoricalExitInterview.html">Exit Interview</a>
+                        </nav>
+                  </div>
+                  <!-- Sub Menu Manage Service -->
+                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#MasterHistoricalCollapseManageService"
+                    aria-expanded="false" aria-controls="MasterHistoricalCollapseManageService">
+                    Manage Service
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </a>
+                  <div class="collapse" id="MasterHistoricalCollapseManageService" aria-labelledby="headingOne"
+                      data-bs-parent="#sidenavAccordionMasterHistorical">
+                        <nav class="sb-sidenav-menu-nested nav">
+                          <a class="nav-link" href="menuSidebar/masterHistorical/manageServiceHistoricalKontrak.html">Historical Kontrak</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/manageServiceHistoricalViolance.html">Historical Violance</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/manageServiceHistoricalMutasiRotasi.html">Historical Mutasi Rotasi</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/manageServiceHistoricalClearanceSheet.html">Clearance Sheet</a>
+                          <a class="nav-link" href="menuSidebar/masterHistorical/manageServiceHistoricalExitInterview.html">Exit Interview</a>
+                        </nav>
+                  </div>
+                </nav>
+                </div>
+              </div>
+              
+              <!-- Side Nav Menu Transaksi -->
+              <div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTransaksi"
+                  aria-expanded="false" aria-controls="collapseTransaksi">
+                  <div class="sb-nav-link-icon">
+                    <i class="fa-solid fa-repeat"></i>
+                  </div>
+                  Transaksi
+                  <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseTransaksi" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                  <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionTransaksi">
+                    <!-- Sub Menu Termination -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#TransaksiCollapseTermination"
+                        aria-expanded="false" aria-controls="TransaksiCollapseTermination">
+                        Termination
+                      <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </a>
+                    <div class="collapse" id="TransaksiCollapseTermination" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionTransaksi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/transaksi/terminationPHK.html">PHK</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/terminationResign.html">Resign</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/terminationResignRenew.html">Resign Renew</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/terminationPengajuanKR.html">Pengajuan Karyawan Resign</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/terminationRetired.html">Retired</a>
+                      </nav>
+                    </div>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiReport.html">Report</a>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiPerubahanShift.html">Perubahan Shift</a>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiSKTM.html">Surat Keterangan Tidak Masuk</a>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiPerhitunganCuti.html">Perhitungan Cuti</a>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiSPL.html">Surat Perintah Lembur</a>
+                    <!-- Sub Menu Seragam -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#TransaksiCollapseSeragam"
+                        aria-expanded="false" aria-controls="TransaksiCollapseSeragam">
+                        Seragam
+                      <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </a>
+                    <div class="collapse" id="TransaksiCollapseSeragam" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionTransaksi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/transaksi/seragamPendistribusian.html">Pendistribusian</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/seragamPembelian.html">Pembelian</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/seragamMonitoringStock.html">Monitoring Stock</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/seragamPengembalian.html">Pengembalian</a>
+                        <a class="nav-link" href="menuSidebar/transaksi/seragamDestroy.html">Destroy Seragam</a>
+                      </nav>
+                    </div>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiPengajuanSK.html">Pengajuan Surat Keterangan</a>
+                    <!-- Sub Menu Pengajuan PTK -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#TransaksiCollapsePengajuanPTK"
+                        aria-expanded="false" aria-controls="TransaksiCollapsePengajuanPTK">
+                        Pengajuan PTK
+                        <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="TransaksiCollapsePengajuanPTK" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionTransaksi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                          <a class="nav-link" href="menuSidebar/transaksi/transaksiPengajuanPTK.html">Pengajuan PTK V1</a>
+                          <a class="nav-link" href="menuSidebar/transaksi/transaksiPengajuanPTKV2.html">Pengajuan PTK V2</a>
+                      </nav>
+                    </div>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiKaryawanRefund.html">Karyawan Refund</a>
+                    <a class="nav-link" href="menuSidebar/transaksi/transaksiSertifikatVaksin.html">Sertifikat Vaksin</a>
+                  </nav>
+                </div>
+              </div>
+
+              <!-- Side Nav Menu Absensi -->
+              <div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAbsensi"
+                  aria-expanded="false" aria-controls="collapseAbsensi">
+                  <div class="sb-nav-link-icon">
+                    <i class="fa-solid fa-fingerprint"></i>
+                  </div>
+                    Absensi
+                  <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseAbsensi" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                  <nav class="sb-sidenav-menu-nested nav" id="sidenavAccordionAbsensi">
+                    <a class="nav-link" href="menuSidebar/absensi/kalenderKerja.html">Kalender Kerja</a>
+                    <!-- Sub Menu Shift Karyawan -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#AbsensiCollapseShift"
+                        aria-expanded="false" aria-controls="AbsensiCollapseShift">
+                        Shift Karyawan
+                        <div class="sb-sidenav-collapse-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="AbsensiCollapseShift" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionAbsensi">
+                        <nav class="sb-sidenav-menu-nested nav">
+                          <!-- Sub Menu Input Shift -->
+                          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#ShiftCollapseInputShift"
+                              aria-expanded="false" aria-controls="ShiftCollapseInputShift">
+                              Input Shift
+                              <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                          </a>
+                          <div class="collapse" id="ShiftCollapseInputShift" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionInputShift">
+                            <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="menuSidebar/absensi/inputShiftMandatori.html">Mandatori</a>
+                              <a class="nav-link" href="menuSidebar/absensi/inputShiftOptional.html">Optional</a>
+                            </nav>
+                          </div>
+                          <a class="nav-link" href="menuSidebar/absensi/viewShift.html">View Shift</a>
+                        </nav>
+                    </div>
+                    <!-- Sub Menu Absen Kehadiran -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#AbsensiCollapseInputAbsenKehadiran"
+                        aria-expanded="false" aria-controls="AbsensiCollapseInputAbsenKehadiran">
+                        Absen Kehadiran
+                        <div class="sb-sidenav-collapse-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="AbsensiCollapseInputAbsenKehadiran" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionAbsensi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/absensi/jamMasukKeluar.html">Jam Masuk Keluar</a>
+                        <a class="nav-link" href="menuSidebar/absensi/absenMonitoring.html">Monitoring</a>
+                        <a class="nav-link" href="menuSidebar/absensi/formPerubahanAbsen.html">Form Perubahan Absen</a>
+                        <a class="nav-link" href="menuSidebar/absensi/templateKaryawanBaru.html">Template Karyawan Baru</a>
+                        <a class="nav-link" href="menuSidebar/absensi/mutasiAbsen.html">Mutasi Absen</a>
+                      </nav>
+                    </div>
+                    <!-- Sub Menu Ketidakhadiran -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#AbsensiCollapseAbsenKetidakhadiran"
+                        aria-expanded="false" aria-controls="AbsensiCollapseAbsenKetidakhadiran">
+                        Absen Ketidakhadiran
+                        <div class="sb-sidenav-collapse-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="AbsensiCollapseAbsenKetidakhadiran" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionAbsensi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/absensi/ketidakhadiranFullday.html">Fullday</a>
+                        <a class="nav-link" href="menuSidebar/absensi/KetidakhadiranNonFullday.html">Non Fullday</a>
+                        <a class="nav-link" href="menuSidebar/absensi/KetidakhadiranPengajuanKhusus.html">Pengajuan Khusus</a>
+                      </nav>
+                    </div>
+                    <!-- Sub Menu Cuti Tahunan -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#AbsensiCollapseCutiTahunan"
+                        aria-expanded="false" aria-controls="AbsensiCollapseCutiTahunan">
+                        Cuti Tahunan
+                        <div class="sb-sidenav-collapse-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="AbsensiCollapseCutiTahunan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionAbsensi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/absensi/hakCutiTahunan.html">Hak Cuti Tahunan</a>
+                        <a class="nav-link" href="menuSidebar/absensi/historiPangambilanCuti.html">History Pangambilan Cuti</a>
+                      </nav>
+                    </div>
+                    <a class="nav-link" href="menuSidebar/absensi/cutiKhusus.html">Cuti Khusus</a>
+                    <a class="nav-link" href="menuSidebar/absensi/absenManual.html">Absen Manual</a>
+                    <a class="nav-link" href="menuSidebar/absensi/longShift.html">Long Shift</a>
+                    <a class="nav-link" href="menuSidebar/absensi/realisasiLembur.html">Realisasi Lembur</a>
+                    <!-- Sub Menu Karyawan -->
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#AbsensiCollapseKaryawan"
+                        aria-expanded="false" aria-controls="AbsensiCollapseKaryawan">
+                        Karyawan
+                        <div class="sb-sidenav-collapse-arrow">
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="AbsensiCollapseKaryawan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionAbsensi">
+                      <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="menuSidebar/absensi/karyawanBackup.html">Karyawan Backup</a>
+                        <a class="nav-link" href="menuSidebar/absensi/karyawanProject.html">Karyawan Project</a>
+                        <a class="nav-link" href="menuSidebar/absensi/karyawanWTP.html">Karyawan WTP</a>
+                      </nav>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              
+              <!-- Side Nav Menu Pengaturan -->
+              <div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePengaturan"
+                    aria-expanded="false" aria-controls="collapsePengaturan">
+                    <div class="sb-nav-link-icon">
+                      <i class="fa-solid fa-gear"></i>
+                    </div>
+                    Pengaturan
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div class="collapse" id="collapsePengaturan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="menuSidebar/pengaturan/absensi.html">Absensi</a>
+                  <a class="nav-link" href="menuSidebar/pengaturan/resetPassword.html">Reset Password</a>
+                  <a class="nav-link" href="menuSidebar/pengaturan/help.html">Help</a>
+                </nav>
+                </div>
+              </div>
+
+              <!-- Template Side Bar 1 -->
+              <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+                aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-columns"></i>
+                </div>
+                  Layouts
+                  <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                  <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                  </nav>
+                </div> -->
+
+              <!-- Template Side Bar 2 -->
+              <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCore"
+                aria-expanded="false" aria-controls="collapseCore">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                Core
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+              <div class="collapse" id="collapseCore" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionCore">
+                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#CoreCollapseAuth"
+                    aria-expanded="false" aria-controls="CoreCollapseAuth">
+                    Authentication
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </a>
+                  <div class="collapse" id="CoreCollapseAuth" aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordionCore">
+                    <nav class="sb-sidenav-menu-nested nav">
+                      <a class="nav-link" href="login.html">Login</a>
+                      <a class="nav-link" href="register.html">Register</a>
+                      <a class="nav-link" href="password.html">Forgot Password</a>
+                    </nav>
+                  </div>
+                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#CoreCollapseError"
+                    aria-expanded="false" aria-controls="CoreCollapseError">
+                    Error
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </a>
+                  <div class="collapse" id="CoreCollapseError" aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordionCore">
+                    <nav class="sb-sidenav-menu-nested nav">
+                      <a class="nav-link" href="401.html">401 Page</a>
+                      <a class="nav-link" href="404.html">404 Page</a>
+                      <a class="nav-link" href="500.html">500 Page</a>
+                    </nav>
+                  </div>
+                </nav>
+              </div> -->
+
+              <!-- Addons -->
+              <!-- <div>
+                <div class="sb-sidenav-menu-heading">Addons</div>
+                  <a class="nav-link" href="charts.html">
+                    <div class="sb-nav-link-icon">
+                      <i class="fas fa-chart-area"></i>
+                    </div>
+                    Charts
+                  </a>
+                  <a class="nav-link" href="tables.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Tables
+                  </a>
+              </div> -->
+              
+            </div>
+          </div>
+          
+          <!-- Footer -->
+          <div class="sb-sidenav-footer">
+          <div class="small">HRIS © 2024 ICT Department, TVIP. V.2.0.0</div>
+          </div>
+      </nav>
+    </div>
+
+    <!-- Sidebar Content -->
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container my-5">
+          <div class="row align-items-center">
+            
+            <div class="col">
+              <div class="card p-4">
+                <div class="row">
+                  <div class="col-md-8">
+                    <p class="h6 text-secondary"><small>Total Karyawan</small></p>
+                    <p class="h1"><strong>1200</strong></p>
+                  </div>
+                  <div class="col-md-4 mt-3">
+                    <i class="fa-solid fa-users fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card p-4">
+                <div class="row">
+                  <div class="col-md-8">
+                    <p class="h6 text-secondary"><small>Kehadiran Karyawan</small></p>
+                    <p class="h1"><strong>850</strong></p>
+                  </div>
+                  <div class="col-md-4 mt-3">
+                    <i class="fa-solid fa-briefcase fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card p-4">
+                <div class="row">
+                  <div class="col-md-8">
+                      <p class="h6 text-secondary"><small>Ketidakhadiran Karyawan</small></p>
+                      <p class="h1"><strong>100</strong></p>
+                  </div>
+                  <div class="col-md-4 mt-3">
+                    <i class="fa-solid fa-right-from-bracket fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card p-4">
+                <div class="row">
+                  <div class="col-md-8">
+                      <p class="h6 text-secondary"><small>Karyawan Terlambat</small></p>
+                      <p class="h1"><strong>28</strong></p>
+                  </div>
+                  <div class="col-md-4 mt-3">
+                    <i class="fa-solid fa-clock fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="container my-5">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="assets/img/4SeptemberHariPelangganNasional.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/9SeptemberHariOlahragaNasional.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/16SeptemberMaulidNabiMuhammadSAW.png" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+      
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../js/scripts.js"></script>
+
+    <!-- Basic -->
+    <!-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script> -->
+  
+    <!-- Bootstrap 5 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>-->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+
+    <!-- Data Table Script -->
+     <!-- <script>
+      $(document).ready(function() {
+          $('#example').DataTable(
+            {scrollX: true }
+          );
+          
+      } );
+    </script> -->
+  
+    <!-- <script type="text/javascript">
+      new DataTable('#example, #pelatihan', {
+        scrollX: true,
+      });
+    </script> -->
+  
+      <script>
+        new DataTable('#example', {
+        scrollX: true
+    });
+      </script>
+
+  </div>
+    <!-- php -->
+
+</body>
+
+</html>
